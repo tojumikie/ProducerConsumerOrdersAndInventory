@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ItemController {
 	@Autowired
 	private ItemRepository itemRepository;
+	
 	@PostMapping(path="/add")
 	public @ResponseBody String addNewItem(@RequestParam String name, 
 			@RequestParam Double price, @RequestParam Integer quantityAvailable) {
@@ -21,4 +22,9 @@ public class ItemController {
 		i.setQuantityAvailable(quantityAvailable);
 		return "new item information saved";
 	}
+	
+//	@GetMapping(path="/all")
+//	public @ResponseBody Iterable<Item> getAllItems() {
+//		return ItemRepository.findAll();
+//	}
 }
