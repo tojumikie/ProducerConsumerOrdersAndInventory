@@ -21,8 +21,19 @@ public class ItemController {
 		i.setName(name);
 		i.setPrice(price);
 		i.setQuantityAvailable(quantityAvailable);
+		itemRepository.save(i);
 		return "new item information saved";
 	}
+//	@PostMapping(path="/add")
+//	public ResponseEntity<Item> addNewItem(@Valid @RequestBody Item item) {
+//		Item added = itemRepository.addItem(item);
+//		System.out.println("new item created: " + added);
+//		return ResponseEntity.ok(added + " created.");
+//	}
+//	@RequestMapping(method=RequestMethod.POST, value="/add")
+//	public Item addNewItem(@RequestBody Item item) {
+//		return itemRepository.save(item);
+//	}
 	
 	@GetMapping(path="/all")
 	public @ResponseBody Iterable<Item> getAllItems() {
